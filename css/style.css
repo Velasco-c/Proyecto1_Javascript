@@ -1,0 +1,112 @@
+/* ================== Variables Globales (Opcional pero recomendado) ================== */
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --shadow: 0 0 clamp(10px, 2vw, 20px) rgba(0, 0, 0, 0.2);
+}
+html, body {
+    scroll-behavior: auto !important; /* Desactiva scroll suave global */
+}
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 0;
+    /* Clamp para la fuente base: mín 14px, ideal 1.5vw, máx 18px */
+    font-size: clamp(14px, 1.5vw, 18px); 
+    font-family: Arial, sans-serif;
+    background: #EEAECA;
+    background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+    overflow-x: hidden; /* Evita scroll horizontal indeseado */
+}
+
+/* ================== Login ========================== */
+.main-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    padding: clamp(10px, 2vw, 20px); /* Padding de seguridad en bordes */
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* Ancho responsive: min 300px, preferido 400px, max 90% del viewport */
+    width: clamp(300px, 90vw, 400px); 
+    height: auto; /* Mejor auto que fijo para evitar cortes */
+    min-height: clamp(300px, 60vh, 500px);
+    background-color: var(--glass-bg);
+    border-radius: clamp(10px, 2vw, 20px);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    overflow: hidden; /* Contener hijos */
+    padding: clamp(10px, 2vw, 20px);
+    box-sizing: border-box;
+}
+
+.iconos {
+    width: clamp(20%, 30%, 40%);
+    height: auto;
+    margin-bottom: clamp(10px, 2vh, 20px);
+}
+
+.iconos img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.informacion {
+    display: flex;
+    flex-direction: column;
+    padding: clamp(10px, 3vw, 20px);
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.formulario-login {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(10px, 2vh, 15px);
+    margin-top: clamp(10px, 3vh, 20px);
+    width: clamp(70%, 90%, 100%);
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+
+.formulario-login input {
+    width: 100%;
+    padding: clamp(8px, 1.5vw, 12px);
+    border: none;
+    border-radius: clamp(4px, 1vw, 8px);
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+    /* Fuente responsive dentro del input */
+    font-size: clamp(14px, 1.2vw, 16px); 
+    box-sizing: border-box;
+}
+
+.formulario-login button {
+    padding: clamp(8px, 1.5vw, 12px) clamp(15px, 3vw, 25px);
+    border: none;
+    border-radius: clamp(4px, 1vw, 8px);
+    background-color: #6b7dd59b;
+    color: white;
+    font-size: clamp(14px, 1.2vw, 16px);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Botón full width en móviles se ve mejor */
+    max-width: 200px;
+}
+
+.formulario-login button:hover {
+    background-color: #1a10da;
+}
