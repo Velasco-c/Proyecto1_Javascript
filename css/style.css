@@ -110,3 +110,94 @@ body {
 .formulario-login button:hover {
     background-color: #1a10da;
 }
+
+
+/* ================== Cabecera Index ================== */
+
+.navbar {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: clamp(5px, 1vw, 15px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    margin-bottom: clamp(1%, 2vh, 3%);
+    box-sizing: border-box;
+    flex-wrap: wrap; /* Permite que los elementos bajen si no caben */
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: clamp(5px, 2vw, 20px);
+    margin: 0;
+    padding: 0;
+    /* Ajuste de margen responsive */
+    margin: clamp(5px, 2vw, 20px); 
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    display: inline-block;
+    transition: all 0.3s ease;
+    font-size: clamp(14px, 1.5vw, 18px);
+}
+
+.nav-links a:hover {
+    color: #4CAF50;
+    transform: translateY(-2px);
+}
+
+/* --- Estilos del Buscador --- */
+.buscador {
+    display: flex;
+    gap: clamp(2px, 1vw, 5px);
+    border-radius: 50px;
+    margin: 0;
+    align-items: center;
+}
+
+.buscador input {
+    width: clamp(100px, 20vw, 300px);
+    height: clamp(25px, 3vw, 35px);
+    padding: clamp(2px, 1vw, 5px);
+    border: none;
+    border-radius: 4px;
+    font-size: clamp(12px, 1.2vw, 14px);
+}
+
+.buscador button {
+    width: clamp(60px, 10vw, 100px);
+    height: clamp(25px, 3vw, 35px);
+    padding: 2px 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: clamp(10px, 1vw, 14px);
+}
+
+/* iconos sociales */
+.iconos-sociales {
+    display: flex;
+    gap: clamp(2px, 1vw, 5px);
+}
+
+.iconos-sociales img {
+    width: clamp(20px, 4vw, 40px);
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
