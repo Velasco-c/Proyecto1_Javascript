@@ -228,7 +228,6 @@ body {
     box-shadow: var(--shadow);
     backdrop-filter: blur(10px);
     padding: clamp(10px, 2vw, 20px);
-    /* Ancho fluido: ocupa espacio disponible pero con límites */
     width: clamp(300px, 95%, 800px); 
     height: auto;
     min-height: clamp(200px, 40vh, 500px);
@@ -404,3 +403,145 @@ body {
     text-decoration: underline;
 }
 
+
+
+/* ================== Parqueo / Espacios ================== */
+
+#modificaciones1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    background-color: var(--glass-bg);
+    border-radius: clamp(10px, 2vw, 20px);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(10px);
+    padding: clamp(15px, 4vw, 30px);
+    width: clamp(300px, 95%, 1400px);
+    margin: clamp(10px, 3vh, 20px) auto;
+    height: auto;
+    min-height: clamp(300px, 50vh, 400px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+.contenedor-espacios {
+    display: grid;
+    /* Responsive Grid: 
+       En escritorio son 5 columnas. 
+       Usamos repeat(auto-fit...) o media queries abajo para cambiar esto */
+    grid-template-columns: repeat(5, 1fr); 
+    gap: clamp(10px, 2vw, 20px);
+    width: 100%;
+    margin-top: clamp(10px, 3vh, 20px);
+}
+
+.espacios {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: clamp(80px, 12vh, 120px);
+    background-color: rgba(38, 255, 0, 0.3);
+    border-radius: clamp(8px, 1.5vw, 12px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, background-color 0.3s ease;
+    padding: clamp(5px, 1.5vw, 15px);
+    box-sizing: border-box;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.espacios:hover {
+    transform: translateY(-5px);
+    background-color: rgba(42, 196, 15, 0.5);
+}
+
+.espacios p {
+    margin: clamp(1px, 0.5vh, 3px) 0;
+    font-family: sans-serif;
+    color: #1a1a1a;
+    line-height: 1.2;
+}
+
+.espacios p:first-child {
+    font-weight: bold;
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+}
+
+.espacios p:last-child {
+    font-style: italic;
+    font-size: clamp(0.7rem, 1.2vw, 0.9rem);
+    opacity: 0.8;
+}
+
+/* ================== MEDIA QUERIES ================== */
+
+/* Tablets y pantallas medianas (menos de 900px) */
+@media (max-width: 900px) {
+    .contenedor-espacios {
+        /* Reducimos a 3 columnas */
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .nav-container {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Móviles (menos de 600px) */
+@media (max-width: 600px) {
+    .main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #modificaciones, .container-principal {
+        width: 95%; /* Ocupar casi todo el ancho */
+        margin-bottom: 20px;
+    }
+
+    .contenedor-espacios {
+        /* En móvil, 2 columnas para que sean legibles */
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .buscador {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .buscador input {
+        width: 60%;
+    }
+    
+    .iconos-sociales {
+        margin-top: 10px;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+/* Pantallas muy pequeñas (menos de 350px) */
+@media (max-width: 350px) {
+    .contenedor-espacios {
+        /* 1 sola columna */
+        grid-template-columns: 1fr;
+    }
+    
+    .formulario-login button {
+        width: 100%;
+    }
+}
