@@ -209,7 +209,7 @@ body {
 .main {
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Cambiado a flex-start para evitar estiramientos raros */
+    align-items: flex-start; 
     width: 100%;
     height: auto;
     gap: clamp(10px, 2vw, 20px);

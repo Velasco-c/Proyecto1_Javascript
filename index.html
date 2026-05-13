@@ -1,323 +1,321 @@
-    <!DOCTYPE html>
-    <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Campus Parking || Campus land</title>
-        <link rel="stylesheet" href="/css/style.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Parking || Campus land</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
 
-    <body>
-        <header>
-            <nav class="navbar">
-                <div class="nav-container">
-                    <div class="iconos">
-                        <h1>hola</h1>
-                    </div>
-                    <ul class="nav-links">
-                        <li><a href="#">inicio</a></li>
-                        <li><a href="#tarifas">Tarifas</a></li>
-                        <li><a href="#">configuracion</a></li>
-                    </ul>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="iconos">
+                    <h1>hola</h1>
                 </div>
-
-                <div class="buscador">
-                    <input type="text" placeholder="Buscar...">
-                    <button type="submit">Buscar</button>
-                </div>
-                <div class="iconos-sociales">
-                    <a href=""><img src="/imagenes/iconos/github.svg" alt="github"></a>
-                    <a href=""><img src="/imagenes/iconos/facebook.svg" alt="facebook"></a>
-                    <a href=""><img src="/imagenes/iconos/linkedin.svg" alt="linkedin"></a>
-                </div>
-            </nav>
-        </header>
-
-        <main class="main">
-            <div class="container-principal">
-
-                <!-- SECCIÓN: TARIFAS -->
-                <section id="tarifas" class="secciones">
-                    <h2>Tarifas Vigentes</h2>
-                    <p>Precios base por hora para el cálculo de servicios.</p>
-                    <table class="diseño tabla-tarifas">
-                        <thead>
-                            <tr>
-                                <th>Tipo</th>
-                                <th>Código</th>
-                                <th>Tarifa / Hora</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Moto</td>
-                                <td><strong>MTO</strong></td>
-                                <td>Q10.00</td>
-                            </tr>
-                            <tr>
-                                <td>Carro</td>
-                                <td><strong>CAR</strong></td>
-                                <td>Q20.00</td>
-                            </tr>
-                            <tr>
-                                <td>Camioneta</td>
-                                <td><strong>SUV</strong></td>
-                                <td>Q30.00</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="acciones-formulario">
-                        <a href="#agregar"><button type="submit" class="btn-actualizar">Agregar</button></a>
-                        <a href="#liquidar"><button type="submit" class="btn-actualizar">liquidar estancia</button></a>
-                        <div>
-                </section>
-
-                <!-- SECCIÓN: INGRESO -->
-                <section id="agregar" class="secciones">
-                    <h2>Ingreso de Vehículo</h2>
-                    <form id="formulario-agregar" class="formulario-modificar">
-                        <div class="grupo-input">
-                            <label for="tipo-ingreso">Vehículo:</label>
-                            <select id="tipo-ingreso" class="input-estilizado" required>
-                                <option value="" disabled selected>Elegir tipo...</option>
-                                <option value="MTO">MTO - Moto</option>
-                                <option value="CAR">CAR - Carro</option>
-                                <option value="SUV">SUV - Camioneta</option>
-                            </select>
-                        </div>
-                        <div class="grupo-input">
-                            <label>Detalles de entrada:</label>
-
-                            <input type="number" id="horas" placeholder="Cantidad de horas" min="1" required>
-                            <input type="text" id="placa" placeholder="Número de placa (Ej: P-123ABC)" required>
-                        </div>
-                        <button type="submit" class="btn-actualizar" >Registrar Ingreso</button>
-                        <a href="#tarifas" class="btn-cancelar">Volver al inicio</a>
-                    </form>
-                </section>
-
-                <!-- SECCIÓN: MODIFICAR (Para corregir registros existentes) -->
-                <section id="modificar" class="secciones">
-                    <h2>Modificar Registro</h2>
-                    <p>Utilice esta sección para corregir la placa o el tiempo de un vehículo ya ingresado.</p>
-
-                    <form action="#" class="formulario-modificar">
-                        <div class="grupo-input">
-                            <label for="mod-codigo">Vehículo a editar:</label>
-                            <select id="mod-codigo" class="input-estilizado" required>
-                                <option disabled selected>Seleccione el registro...</option>
-                                <!-- Estos se cargarían dinámicamente, aquí un ejemplo -->
-                                <option value="MTO">MTO - Moto</option>
-                                <option value="CAR">CAR - Carro</option>
-                                <option value="SUV">SUV - Camioneta</option>
-                            </select>
-                        </div>
-
-                        <div class="grupo-input">
-                            <label>Nuevos datos del vehículo:</label>
-                            <input type="text" placeholder="Nueva Placa" required>
-                            <input type="number" placeholder="Nuevas Horas" min="1" required>
-
-                        </div>
-
-                        <div class="acciones-formulario">
-                            <button type="submit" class="btn-actualizar">Confirmar Cambios</button>
-                            <a href="#tarifas" class="btn-cancelar">Cancelar y Volver</a>
-                        </div>
-                    </form>
-                </section>
-
-                <!-- SECCIÓN: LIQUIDAR -->
-                <section id="liquidar" class="secciones">
-                    <h2>Liquidar Estancia</h2>
-                    <form action="#" class="formulario-modificar">
-                        <div class="grupo-input">
-                            <label>Seleccionar Vehículo Activo:</label>
-                            <input type="text" placeholder="Buscar por número de placa" id="Liquidar-placa" required>
-                        </div>
-
-                        <div class="grupo-input">
-                            <label>Total a pagar (Q):</label>
-                            <input type="text" placeholder="Cálculo automático" readonly id="total">
-                        </div>
-
-                        <button type="submit" class="btn-actualizar">Registrar Pago y Salida</button>
-                        <a href="#tarifas" class="btn-cancelar">Volver al inicio</a>
-                    </form>
-                </section>
+                <ul class="nav-links">
+                    <li><a href="#">inicio</a></li>
+                    <li><a href="#tarifas">Tarifas</a></li>
+                    <li><a href="#">configuracion</a></li>
+                </ul>
             </div>
 
-            <!-- TABLA DE REGISTROS ACTIVOS -->
-            <div class="container" id="modificaciones">
-                <h3>Vehículos en Parqueo</h3>
-                <table class="diseño" id="tablaVehiculos">
+            <div class="buscador">
+                <input type="text" placeholder="Buscar...">
+                <button type="submit">Buscar</button>
+            </div>
+            <div class="iconos-sociales">
+                <a href=""><img src="/imagenes/iconos/github.svg" alt="github"></a>
+                <a href=""><img src="/imagenes/iconos/facebook.svg" alt="facebook"></a>
+                <a href=""><img src="/imagenes/iconos/linkedin.svg" alt="linkedin"></a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="container-principal">
+
+            <!-- SECCIÓN: TARIFAS -->
+            <section id="tarifas" class="secciones">
+                <h2>Tarifas Vigentes</h2>
+                <p>Precios base por hora para el cálculo de servicios.</p>
+                <table class="diseño tabla-tarifas">
                     <thead>
                         <tr>
-                            <th>Código</th>
                             <th>Tipo</th>
-                            <th>Placa</th>
-                            <th>Horas</th>
-                            <th>Total Pago</th>
-                            <th>Acciones</th>
+                            <th>Código</th>
+                            <th>Tarifa / Hora</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>MTO</td>
                             <td>Moto</td>
-                            <td><strong>M-550JKD</strong></td>
-                            <td>2 hrs</td>
-                            <td><strong>Q20.00</strong></td>
-                            <td>
-                                <a href="#modificar" class="btn-scroll"><img src="/imagenes/iconos/pencil.svg" alt="editar"
-                                        width="18"></a>
-                                <button class="btn-borrar"><img src="/imagenes/iconos/trash.svg" alt="eliminar"
-                                        width="18"></button>
-                            </td>
+                            <td><strong>MTO</strong></td>
+                            <td>Q10.00</td>
                         </tr>
                         <tr>
-                            <td>CAR</td>
                             <td>Carro</td>
-                            <td><strong>P-882BBS</strong></td>
-                            <td>3 hrs</td>
-                            <td><strong>Q60.00</strong></td>
-                            <td>
-                                <a href="#modificar" class="btn-scroll"><img src="/imagenes/iconos/pencil.svg" alt="editar"
-                                        width="18"></a>
-                                <button class="btn-borrar"><img src="/imagenes/iconos/trash.svg" alt="eliminar"
-                                        width="18"></button>
-                            </td>
+                            <td><strong>CAR</strong></td>
+                            <td>Q20.00</td>
                         </tr>
                         <tr>
-                            <td>SUV</td>
                             <td>Camioneta</td>
-                            <td><strong>P-101QQW</strong></td>
-                            <td>2 hrs</td>
-                            <td><strong>Q60.00</strong></td>
-                            <td>
-                                <a href="#modificar" class="btn-scroll"><img src="/imagenes/iconos/pencil.svg" alt="editar"
-                                        width="18"></a>
-                                <button class="btn-borrar"><img src="/imagenes/iconos/trash.svg" alt="eliminar"
-                                        width="18"></button>
-                            </td>
+                            <td><strong>SUV</strong></td>
+                            <td>Q30.00</td>
                         </tr>
                     </tbody>
                 </table>
-            </div>
-        </main>
-        <section class="main">
-            <div class="container" id="modificaciones1">
-                <div class="">
-                    <h3>Vehículos en Parqueo</h3>
-                </div>
-                <div class="contenedor-espacios">
-                    <div class="espacios" id="espacio-1">
-                        <p>espacio #1</p>
-                        <p>sin registro</p>
-                        <p>libre</p>
-                    </div>
-                    <div class="espacios" id="espacio-2">
-                        <p>espacio #2</p>
-                        <p>sin registro</p>
-                        <p>libre</p>
-                    </div>
-                    <div class="espacios" id="espacio-3">
-                        <p>espacio #3</p>
-                        <p>sin registro</p>
-                        <p>libre</p>
-                    </div>
-                    <div class="espacios" id="espacio-4">
-                        <p>espacio #4</p>
-                        <p>sin registro</p>
-                        <p>libre</p>
-                    </div>
-                    <div class="espacios" id="espacio-5">
-                        <p>espacio #5</p>
-                        <p>sin registro</p>
-                        <p>libre</p>
-                    </div>
-                    <div class="espacios" id="espacio-6">
-                        <p>espacio #6</p>
-                        <p>sin registro</p>
-                        <p>libre</p>
-                    </div>
-                    <div class="espacios" id="espacio-7">
-                        <p>espacio #7</p>
-                        <p>sin registro</p>
-                        <p>libre</p>
-                    </div>
-                    <div class="espacios" id="espacio-8">
-                        <p>espacio #8</p>
-                        <p>sin registro</p>
-                        <p>libre</p>
-                    </div>
-                    <div class="espacios" id="espacio-9">
-                        <p>espacio #9</p>
-                        <p>sin registro</p>
-                        <p>libre</p>
-                    </div>
-                    <div class="espacios" id="espacio-10">
-                        <p>espacio #10</p>
-                        <p>sin registro</p>
-                        <p>libre</p>
-                    </div>
-                    <div class="espacios" id="espacio-11">
-                        <p>espacio #11</p>
-                        <p>sin registro</p>
-                        <p>libre</p>
-                    </div>
-                    <div class="espacios" id="espacio-12">
-                        <p>espacio #12</p>
-                        <p>sin registro</p>
-                        <p>libre</p>
-                    </div>
-                    <div class="espacios" id="espacio-13">
-                        <p>espacio #13</p>
-                        <p>sin registro</p>
-                        <p>libre</p>
-                    </div>
-                    <div class="espacios" id="espacio-14">
-                        <p>espacio #14</p>
-                        <p>sin registro</p>
-                        <p>libre</p>
-                    </div>
-                    <div class="espacios" id="espacio-15">
-                        <p>espacio #15</p>
-                        <p>sin registro</p>
-                        <p>libre</p>
-                    </div>
-                    <div class="espacios" id="espacio-16">
-                        <p>espacio #16</p>
-                        <p>sin registro</p>
-                        <p>libre</p>
-                    </div>
-                    <div class="espacios" id="espacio-17">
-                        <p>espacio #17</p>
-                        <p>sin registro</p>
-                        <p>libre</p>
-                    </div>
-                    <div class="espacios" id="espacio-18">
-                        <p>espacio #18</p>
-                        <p>sin registro</p>
-                        <p>libre</p>
-                    </div>
-                    <div class="espacios" id="espacio-19">
-                        <p>espacio #19</p>
-                        <p>sin registro</p>
-                        <p>libre</p>
-                    </div>
-                    <div class="espacios" id="espacio-20">
-                        <p>espacio #20</p>
-                        <p>sin registro</p>
-                        <p>libre</p>
-                    </div>
-                </div>
+                <div class="acciones-formulario">
+                    <a href="#agregar"><button type="submit" class="btn-actualizar">Agregar</button></a>
+                    <a href="#liquidar"><button type="submit" class="btn-actualizar">liquidar estancia</button></a>
+                    <div>
+            </section>
 
-            </div>
-        </section>
-        <script src="/javascript/index.js"></script>
-        
-    </body>
+            <!-- SECCIÓN: INGRESO -->
+            <section id="agregar" class="secciones">
+                <h2>Ingreso de Vehículo</h2>
+                <form id="formulario-agregar" class="formulario-modificar">
+                    <div class="grupo-input">
+                        <label for="tipo-ingreso">Vehículo:</label>
+                        <select id="tipo-ingreso" class="input-estilizado" required>
+                            <option value="" disabled selected>Elegir tipo...</option>
+                            <option value="MTO">MTO - Moto</option>
+                            <option value="CAR">CAR - Carro</option>
+                            <option value="SUV">SUV - Camioneta</option>
+                        </select>
+                    </div>
+                    <div class="grupo-input">
+                        <label>Detalles de entrada:</label>
 
-    </html>
+                        <input type="number" id="horas" placeholder="Cantidad de horas" min="1" required>
+                        <input type="number" id="estacionamiento" placeholder="ingrese el lugar de estacionamiento"
+                            min="1" max="20" required>
+                        <input type="text" id="placa" placeholder="Número de placa (Ej: P-123ABC)" required>
+                    </div>
+                    <button type="submit" class="btn-actualizar">Registrar Ingreso</button>
+                    <a href="#tarifas" class="btn-cancelar">Volver al inicio</a>
+                </form>
+            </section>
+
+            <!-- SECCIÓN: MODIFICAR (Para corregir registros existentes) -->
+            <section id="modificar" class="secciones">
+                <h2>Modificar Registro</h2>
+                <p>Utilice esta sección para corregir la placa o el tiempo de un vehículo ya ingresado.</p>
+
+                <form action="#" class="formulario-modificar">
+                    <div class="grupo-input">
+                        <label>Vehículo a editar:</label>
+                        <input type="text" id="placa2" placeholder="Número de placa (Ej: P-123ABC)" required>
+
+                    </div>
+
+                    <div class="grupo-input">
+                        <label>Nuevos datos del vehículo:</label>
+                        <input type="number" id="estacionamiento1" placeholder="ingrese el lugar de estacionamiento"
+                            min="1" max="20" required>
+                        <input type="number" placeholder="Nuevas Horas" min="1" required>
+
+                    </div>
+
+                    <div class="acciones-formulario">
+                        <button type="submit" class="btn-actualizar">Confirmar Cambios</button>
+                        <a href="#tarifas" class="btn-cancelar">Cancelar y Volver</a>
+                    </div>
+                </form>
+            </section>
+
+            <!-- SECCIÓN: LIQUIDAR -->
+            <section id="liquidar" class="secciones">
+                <h2>Liquidar Estancia</h2>
+                <form action="#" class="formulario-modificar">
+                    <div class="grupo-input">
+                        <label>Seleccionar Vehículo Activo:</label>
+                        <input type="text" placeholder="Buscar por número de placa" id="Liquidar-placa" required>
+                    </div>
+
+                    <div class="grupo-input">
+                        <label>Total a pagar (Q):</label>
+                        <input type="text" placeholder="Cálculo automático" readonly id="total">
+                    </div>
+
+                    <button type="submit" class="btn-actualizar">Registrar Pago y Salida</button>
+                    <a href="#tarifas" class="btn-cancelar">Volver al inicio</a>
+                </form>
+            </section>
+        </div>
+
+        <!-- TABLA DE REGISTROS ACTIVOS -->
+        <div class="container" id="modificaciones">
+            <h3>Vehículos en Parqueo</h3>
+            <table class="diseño" id="tablaVehiculos">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Tipo</th>
+                        <th>Placa</th>
+                        <th>Horas</th>
+                        <th>Total Pago</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>MTO</td>
+                        <td>Moto</td>
+                        <td><strong>M-550JKD</strong></td>
+                        <td>2 hrs</td>
+                        <td><strong>Q20.00</strong></td>
+                        <td>
+                            <a href="#modificar" class="btn-scroll"><img src="/imagenes/iconos/pencil.svg" alt="editar"
+                                    width="18"></a>
+                            <button class="btn-borrar"><img src="/imagenes/iconos/trash.svg" alt="eliminar"
+                                    width="18"></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>CAR</td>
+                        <td>Carro</td>
+                        <td><strong>P-882BBS</strong></td>
+                        <td>3 hrs</td>
+                        <td><strong>Q60.00</strong></td>
+                        <td>
+                            <a href="#modificar" class="btn-scroll"><img src="/imagenes/iconos/pencil.svg" alt="editar"
+                                    width="18"></a>
+                            <button class="btn-borrar"><img src="/imagenes/iconos/trash.svg" alt="eliminar"
+                                    width="18"></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>SUV</td>
+                        <td>Camioneta</td>
+                        <td><strong>P-101QQW</strong></td>
+                        <td>2 hrs</td>
+                        <td><strong>Q60.00</strong></td>
+                        <td>
+                            <a href="#modificar" class="btn-scroll"><img src="/imagenes/iconos/pencil.svg" alt="editar"
+                                    width="18"></a>
+                            <button class="btn-borrar"><img src="/imagenes/iconos/trash.svg" alt="eliminar"
+                                    width="18"></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <section class="main">
+        <div class="container" id="modificaciones1">
+            <div class="">
+                <h3>Vehículos en Parqueo</h3>
+            </div>
+            <div class="contenedor-espacios">
+                <div class="espacios" id="espacio-1">
+                    <p>espacio #1</p>
+                    <p>sin registro</p>
+                    <p>libre</p>
+                </div>
+                <div class="espacios" id="espacio-2">
+                    <p>espacio #2</p>
+                    <p>sin registro</p>
+                    <p>libre</p>
+                </div>
+                <div class="espacios" id="espacio-3">
+                    <p>espacio #3</p>
+                    <p>sin registro</p>
+                    <p>libre</p>
+                </div>
+                <div class="espacios" id="espacio-4">
+                    <p>espacio #4</p>
+                    <p>sin registro</p>
+                    <p>libre</p>
+                </div>
+                <div class="espacios" id="espacio-5">
+                    <p>espacio #5</p>
+                    <p>sin registro</p>
+                    <p>libre</p>
+                </div>
+                <div class="espacios" id="espacio-6">
+                    <p>espacio #6</p>
+                    <p>sin registro</p>
+                    <p>libre</p>
+                </div>
+                <div class="espacios" id="espacio-7">
+                    <p>espacio #7</p>
+                    <p>sin registro</p>
+                    <p>libre</p>
+                </div>
+                <div class="espacios" id="espacio-8">
+                    <p>espacio #8</p>
+                    <p>sin registro</p>
+                    <p>libre</p>
+                </div>
+                <div class="espacios" id="espacio-9">
+                    <p>espacio #9</p>
+                    <p>sin registro</p>
+                    <p>libre</p>
+                </div>
+                <div class="espacios" id="espacio-10">
+                    <p>espacio #10</p>
+                    <p>sin registro</p>
+                    <p>libre</p>
+                </div>
+                <div class="espacios" id="espacio-11">
+                    <p>espacio #11</p>
+                    <p>sin registro</p>
+                    <p>libre</p>
+                </div>
+                <div class="espacios" id="espacio-12">
+                    <p>espacio #12</p>
+                    <p>sin registro</p>
+                    <p>libre</p>
+                </div>
+                <div class="espacios" id="espacio-13">
+                    <p>espacio #13</p>
+                    <p>sin registro</p>
+                    <p>libre</p>
+                </div>
+                <div class="espacios" id="espacio-14">
+                    <p>espacio #14</p>
+                    <p>sin registro</p>
+                    <p>libre</p>
+                </div>
+                <div class="espacios" id="espacio-15">
+                    <p>espacio #15</p>
+                    <p>sin registro</p>
+                    <p>libre</p>
+                </div>
+                <div class="espacios" id="espacio-16">
+                    <p>espacio #16</p>
+                    <p>sin registro</p>
+                    <p>libre</p>
+                </div>
+                <div class="espacios" id="espacio-17">
+                    <p>espacio #17</p>
+                    <p>sin registro</p>
+                    <p>libre</p>
+                </div>
+                <div class="espacios" id="espacio-18">
+                    <p>espacio #18</p>
+                    <p>sin registro</p>
+                    <p>libre</p>
+                </div>
+                <div class="espacios" id="espacio-19">
+                    <p>espacio #19</p>
+                    <p>sin registro</p>
+                    <p>libre</p>
+                </div>
+                <div class="espacios" id="espacio-20">
+                    <p>espacio #20</p>
+                    <p>sin registro</p>
+                    <p>libre</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <script src="/javascript/index.js"></script>
+
+</body>
+
+</html>
