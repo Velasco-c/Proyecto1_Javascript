@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login || Campus land</title>
     <link rel="stylesheet" href="/css//style.css">
+    <link rel="stylesheet" href="/css/login.css">
 </head>
 
 <body>
@@ -21,10 +22,29 @@
                 <form action="index.html" method="post" class="formulario-login" id="formulario-login">
                     <input type="email" placeholder="example@gmail.com" id="email" required>
                     <input type="password" placeholder="enter password" id="password" required>
+                    <p style="color: white; font-size: 0.8rem; margin-top: 15px;">
+                        ¿No tienes cuenta? <a href="#" id="btn-abrir-registro" style="color: #fff; font-weight: bold;">Regístrate aquí</a>
+                    </p>
                     <button type="submit">Iniciar Sesión</button>
                 </form>
             </div>
         </div>
+
+
+            
+
+<div class="contenedor-modal" id="modal-registro">
+    <form id="form-registro" class="modal-content">
+        <h2>Crear Cuenta</h2>
+        <input type="text" id="reg-username" placeholder="Nombre de Usuario" required>
+        <input type="text" id="reg-email" placeholder="Correo Electrónico" required>
+        <input type="password" id="reg-password" placeholder="Contraseña" required>
+        <div class="modal_botones">
+            <button type="button" id="btn-cerrar-registro" style="background: #333; color: white;">Cancelar</button>
+            <button type="submit">Registrar</button>
+        </div>
+    </form>
+</div>
     </main>
     <script src="/javascript/login.js"></script>
 

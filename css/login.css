@@ -1,0 +1,55 @@
+/* Contenedor del modal (oculto por defecto) */
+.contenedor-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro traslúcido */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+}
+
+/* Estado cuando el modal está abierto */
+.contenedor-modal.activo {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Estilo de la caja del formulario */
+.modal-content {
+    background: rgb(32, 28, 28);
+    padding: 30px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.modal-content input {
+    width: 80%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background: #333;
+    color: white;
+}
+.modal-content input::placeholder{
+    font-weight: bold;
+}
+.modal-content h2{
+    color: white; 
+    margin-bottom: 20px;
+    text-align: center;
+}
+.modal-content button{
+    border-radius: 5px;
+}
