@@ -101,3 +101,45 @@ formularioIngreso.addEventListener('submit', contenedores);
 //función para eliminar un vehículo registrado
 // btn para eliminar el dato ingreso por id
 const borrar = document.getElementById('eliminar-dato'); 
+// ===== ELIMINAR REGISTRO =====
+tablaBody?.addEventListener('click', (e) => {
+    const btnBorrar = e.target.closest('.btn-borrar');
+    if (!btnBorrar) return;
+    
+    const fila = btnBorrar.closest('tr');
+    const placa = fila.querySelector('td:nth-child(3) strong').textContent;
+    
+    if (!confirm(`¿Eliminar vehículo con placa ${placa}?`)) return;
+    
+    let listaVehiculos = JSON.parse(localStorage.getItem('vehiculos')) || [];
+    
+    // 2. Encontrar el vehículo a eliminar (para saber su espacio)
+    // crea un copia de seguridad del vehículo a eliminar antes de filtrarlo para liberar el espacio después
+    const vehiculoEliminar = listaVehiculos.find(v => v.placa === placa);
+    
+    // 3. Filtrar y guardar
+    listaVehiculos = listaVehiculos.filter(v => v.placa !== placa);
+    localStorage.setItem('vehiculos', JSON.stringify(listaVehiculos));
+    
+    fila.remove();
+    
+    // 5. Liberar el espacio de estacionamiento
+    if (vehiculoEliminar && vehiculoEliminar.espaciosDisponibles) {
+        console.log(`Liberando espacio ${vehiculoEliminar.espaciosDisponibles} para placa ${placa}`);
+        liberarEspacio(vehiculoEliminar.espaciosDisponibles);
+    }
+    
+    console.log(`✅ Vehículo ${placa} eliminado`);
+});
+
+// Función para marcar espacio como disponible
+const liberarEspacio = (numeroEspacio) => {
+    const espacioElemento = document.getElementById(`espacio-${numeroEspacio}`);
+    
+    if (espacioElemento) {
+        const parrafos = espacioElemento.querySelectorAll('p');
+        if (parrafos[1]) parrafos[1].textContent = 'Disponible';
+        if (parrafos[2]) parrafos[2].textContent = 'libre';
+        espacioElemento.style.backgroundColor = ''; // Quitar color rojo
+    }
+};
