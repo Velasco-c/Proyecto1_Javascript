@@ -88,11 +88,9 @@
                     </div>
                     <div class="grupo-input">
                         <label>Detalles de entrada:</label>
+                        <input type="number" id="estacionamiento" placeholder="Lugar (1-20)" min="1" max="20" required>
 
-                        <input type="number" id="horas" placeholder="Cantidad de horas" min="1" required>
-                        <input type="number" id="estacionamiento" placeholder="ingrese el lugar de estacionamiento"
-                            min="1" max="20" required>
-                        <input type="text" id="placa" placeholder="Número de placa (Ej: P-123ABC)" required>
+                        <input type="text" id="placa" placeholder="Ej: qw-145dr" required autocomplete="off">
                     </div>
                     <button type="submit" class="btn-actualizar">Registrar Ingreso</button>
                     <a href="#tarifas" class="btn-cancelar">Volver al inicio</a>
@@ -152,52 +150,59 @@
             <table class="diseño" id="tablaVehiculos">
                 <thead>
                     <tr>
-                        <th>Código</th>
                         <th>Tipo</th>
+                        <th>Vehículo</th>
                         <th>Placa</th>
-                        <th>Horas</th>
-                        <th>Total Pago</th>
+                        <th>Hora Ingreso</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- Fila de ejemplo 1 -->
                     <tr>
                         <td>MTO</td>
                         <td>Moto</td>
                         <td><strong>M-550JKD</strong></td>
-                        <td>2 hrs</td>
-                        <td><strong>Q20.00</strong></td>
+                        <td>08:15 AM</td> <!-- Ejemplo de hora real -->
                         <td>
-                            <a href="#modificar" class="btn-scroll"><img src="/imagenes/iconos/pencil.svg" alt="editar"
-                                    width="18"></a>
-                            <button class="btn-borrar"><img src="/imagenes/iconos/trash.svg" alt="eliminar"
-                                    width="18"></button>
+                            <a href="#modificar" class="btn-scroll">
+                                <img src="/imagenes/iconos/pencil.svg" alt="editar" width="18">
+                            </a>
+                            <button class="btn-borrar" id="eliminar-dato">
+                                <img src="/imagenes/iconos/trash.svg" alt="eliminar" width="18">
+                            </button>
                         </td>
                     </tr>
+
+                    <!-- Fila de ejemplo 2 -->
                     <tr>
                         <td>CAR</td>
                         <td>Carro</td>
                         <td><strong>P-882BBS</strong></td>
-                        <td>3 hrs</td>
-                        <td><strong>Q60.00</strong></td>
+                        <td>09:45 AM</td>
                         <td>
-                            <a href="#modificar" class="btn-scroll"><img src="/imagenes/iconos/pencil.svg" alt="editar"
-                                    width="18"></a>
-                            <button class="btn-borrar"><img src="/imagenes/iconos/trash.svg" alt="eliminar"
-                                    width="18"></button>
+                            <a href="#modificar" class="btn-scroll">
+                                <img src="/imagenes/iconos/pencil.svg" alt="editar" width="18">
+                            </a>
+                            <button class="btn-borrar"  id="eliminar-dato">
+                                <img src="/imagenes/iconos/trash.svg" alt="eliminar" width="18">
+                            </button>
                         </td>
                     </tr>
+
+                    <!-- Fila de ejemplo 3 -->
                     <tr>
                         <td>SUV</td>
                         <td>Camioneta</td>
                         <td><strong>P-101QQW</strong></td>
-                        <td>2 hrs</td>
-                        <td><strong>Q60.00</strong></td>
+                        <td>10:30 AM</td>
                         <td>
-                            <a href="#modificar" class="btn-scroll"><img src="/imagenes/iconos/pencil.svg" alt="editar"
-                                    width="18"></a>
-                            <button class="btn-borrar"><img src="/imagenes/iconos/trash.svg" alt="eliminar"
-                                    width="18"></button>
+                            <a href="#modificar" class="btn-scroll">
+                                <img src="/imagenes/iconos/pencil.svg" alt="editar" width="18">
+                            </a>
+                            <button class="btn-borrar"  id="eliminar-dato">
+                                <img src="/imagenes/iconos/trash.svg" alt="eliminar" width="18">
+                            </button>
                         </td>
                     </tr>
                 </tbody>

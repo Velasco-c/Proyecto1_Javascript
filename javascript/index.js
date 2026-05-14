@@ -1,55 +1,77 @@
 // formulario para el ingreso de vehículos al parqueadero
-//  con validación de campos y cálculo de tarifa según el tipo de vehículo y horas de estacionamiento.
 const formularioIngreso = document.getElementById('formulario-agregar');
+const tablaBody = document.getElementById('tablaVehiculos');
 
 const registro = (e) => {
     e.preventDefault();
+
     const listaVehiculos = JSON.parse(localStorage.getItem('vehiculos')) || [];
     const tipoIngreso = document.getElementById('tipo-ingreso').value;
-    const horas = document.getElementById('horas').value;
+    const ahora = new Date();
+    const horaIngreso = ahora.toLocaleTimeString('es-GT', {
+        hour: '2-digit', minute: '2-digit', hour12: true
+    });
+
     const placa = document.getElementById('placa').value.trim().toUpperCase();
     const espaciosDisponibles = document.getElementById('estacionamiento').value;
-    let tablaBody = document.getElementById('tablaVehiculos');
     let tipoVehiculo = '';
-    let tarifaHora = 0;
 
-    if (!tipoIngreso || !horas || !placa) {
+    if (!tipoIngreso || !placa || !espaciosDisponibles) {
         alert('Por favor, complete todos los campos para registrar el ingreso.');
         return;
     }
 
-    switch (tipoIngreso) {
-        case 'MTO': tipoVehiculo = 'Moto'; tarifaHora = 10; break;
-        case 'CAR': tipoVehiculo = 'Carro'; tarifaHora = 20; break;
-        case 'SUV': tipoVehiculo = 'Camioneta'; tarifaHora = 30; break;
-        default: alert(' Tipo de vehículo no reconocido.'); return;
-    }
-    const totalPagar = tarifaHora * horas;
+    // 🔒 NUEVO: Validar si el espacio YA está ocupado en localStorage
+    const espacioOcupado = listaVehiculos.some(
+        v => v.espaciosDisponibles === espaciosDisponibles && v.placa !== placa
+    );
 
-    console.log(`✅ Registro: ${tipoIngreso} | ${tipoVehiculo} | ${horas}h | ${placa} | Total: Q${totalPagar.toFixed(2)}`);
-    console.log('Registro de ingreso funcionando');
+    if (espacioOcupado) {
+        alert(`⚠️ Espacio ${espaciosDisponibles} ya está ocupado.`);
+        return;
+    }
+
+    // ✅ Validación opcional: placa repetida (por si acaso)
+    const placaRepetida = listaVehiculos.some(v => v.placa === placa);
+    if (placaRepetida) {
+        alert(`⚠️ La placa ${placa} ya está registrada.`);
+        return;
+    }
+
+    switch (tipoIngreso) {
+        case 'MTO': tipoVehiculo = 'Moto'; break;
+        case 'CAR': tipoVehiculo = 'Carro'; break;
+        case 'SUV': tipoVehiculo = 'Camioneta'; break;
+        default: alert('Tipo de vehículo no reconocido.'); return;
+    }
+
+    console.log(`✅ Registro: ${tipoVehiculo} | ${placa} | ${horaIngreso}`);
+
     if (tablaBody) {
         const nuevaFila = document.createElement('tr');
         nuevaFila.innerHTML = `
             <td>${tipoIngreso}</td>
             <td>${tipoVehiculo}</td>
             <td><strong>${placa}</strong></td>
-            <td>${horas} hrs</td>
-            <td><strong>Q${totalPagar.toFixed(2)}</strong></td>
+            <td>${horaIngreso}</td>
             <td>
-                <a href="#modificar" class="btn-scroll"><img src="/imagenes/iconos/pencil.svg" alt="editar"width="18"></a>
-                <button class="btn-borrar"><img src="/imagenes/iconos/trash.svg" alt="eliminar" width="18"></button>
+                <a href="#modificar" class="btn-scroll">
+                    <img src="/imagenes/iconos/pencil.svg" alt="editar" width="18">
+                </a>
+                <button class="btn-borrar"  id="eliminar-dato">
+                    <img src="/imagenes/iconos/trash.svg" alt="eliminar" width="18">
+                </button>
             </td>
         `;
         tablaBody.appendChild(nuevaFila);
     }
-    datos = { tipoIngreso, tipoVehiculo, horas, placa, totalPagar, espaciosDisponibles }
+
+    const datos = { tipoIngreso, tipoVehiculo, placa, horaIngreso, espaciosDisponibles }
     listaVehiculos.push(datos);
     localStorage.setItem('vehiculos', JSON.stringify(listaVehiculos));
-    console.log('Datos guardados en localStorage');
+
     formularioIngreso.reset();
 }
-
 
 const contenedores = () => {
     const listaVehiculos = JSON.parse(localStorage.getItem('vehiculos')) || [];
@@ -62,21 +84,20 @@ const contenedores = () => {
 
             if (estadoActual === 'ocupado') {
                 alert(`El espacio ${vehiculo.espaciosDisponibles} ya está ocupado por ${parrafos[1].textContent}.`);
-                return; 
-            }            
+                return;
+            }
 
             parrafos[1].textContent = vehiculo.placa;
-            parrafos[2].textContent = "ocupado";            
-            
-            espacioElemento.style.backgroundColor = 'rgba(255, 0, 0, 0.3)'; 
-            
-            console.log(`Espacio ${vehiculo.espaciosDisponibles} ocupado por ${vehiculo.placa}`);
-        } else {
-            console.log(`El espacio ${vehiculo.espaciosDisponibles} no existe en el HTML.`);
+            parrafos[2].textContent = "ocupado";
+            espacioElemento.style.backgroundColor = 'rgba(255, 0, 0, 0.3)';
         }
     });
 }
 
-
 formularioIngreso.addEventListener('submit', registro);
 formularioIngreso.addEventListener('submit', contenedores);
+
+
+//función para eliminar un vehículo registrado
+// btn para eliminar el dato ingreso por id
+const borrar = document.getElementById('eliminar-dato'); 
