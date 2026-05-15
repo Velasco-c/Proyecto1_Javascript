@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/pagos.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="iconos">
+                    <h1>hola</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#">inicio</a></li>
+                    <li><a href="#tarifas">Tarifas</a></li>
+                    <li><a href="#">configuracion</a></li>
+                </ul>
+            </div>
+
+            <div class="buscador">
+                <input type="text" placeholder="Buscar...">
+                <button type="submit">Buscar</button>
+            </div>
+            <div class="iconos-sociales">
+                <a href=""><img src="/imagenes/iconos/github.svg" alt="github"></a>
+                <a href=""><img src="/imagenes/iconos/facebook.svg" alt="facebook"></a>
+                <a href=""><img src="/imagenes/iconos/linkedin.svg" alt="linkedin"></a>
+            </div>
+        </nav>
+    </header>
+    <div class="contenedor-principal"> <div class="contenedor" id="tabla">
+        <h2>Historial de Pagos</h2>
+        <p>Gestión de ingresos y liquidaciones.</p>
+
+        <table class="Tabla">
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Vehículo</th>
+                    <th>Placa</th>
+                    <th>Fecha Ingreso</th>
+                    <th>Hora Ingreso</th>
+                    <th>Hora Salida</th>
+                    <th>Fecha Salida</th>
+                    <th>Pago Total</th>
+                </tr>
+            </thead>
+            <tbody id="cuerpoTabla">
+                </tbody>
+        </table>
+    </div>
+</div>
+
+    <script src="/javascript/pagos.js"></script>
+
+</body>
+
+</html>
