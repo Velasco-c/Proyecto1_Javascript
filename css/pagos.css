@@ -1,5 +1,4 @@
 /* Variables de apoyo si no las tienes definidas */
-
 :root {
     --glass-bg: rgba(255, 255, 255, 0.2);
     --glass-border: rgba(255, 255, 255, 0.3);
@@ -11,7 +10,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: 10px;
+    padding: clamp(10px, 3vw, 20px);
     box-sizing: border-box;
 }
 
@@ -24,23 +23,27 @@
     box-shadow: var(--shadow);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    padding: clamp(20px, 5vw, 40px);
+    padding: clamp(15px, 4vw, 40px); /* Ajustado para pantallas pequeñas */
     width: 100%;
     max-width: 1200px; 
     margin: 20px auto;
     border: 1px solid var(--glass-border);
+    box-sizing: border-box;
+    overflow: hidden; /* Evita que cualquier elemento rompa el diseño */
 }
 
 h2 {
-    font-size: clamp(1.5rem, 4vw, 2.5rem);
-    margin-bottom: 10px;
+    font-size: clamp(1.4rem, 5vw, 2.5rem); /* Letra más fluida */
+    margin-bottom: 8px;
     color: var(--primary-color);
+    text-align: center;
 }
 
 p {
-    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    font-size: clamp(0.85rem, 2vw, 1.1rem); /* Mejor escala para móviles */
     margin-bottom: 25px;
     opacity: 0.8;
+    text-align: center;
 }
 
 .Tabla {
@@ -52,7 +55,7 @@ p {
 .Tabla thead th {
     background-color: rgba(0, 0, 0, 0.05);
     padding: 15px;
-    font-size: clamp(13px, 1.1vw, 15px);
+    font-size: clamp(12px, 1.2vw, 15px);
     text-transform: uppercase;
     letter-spacing: 1px;
     border-bottom: 2px solid var(--glass-border);
@@ -62,52 +65,67 @@ p {
 .Tabla td {
     padding: 15px;
     text-align: center;
-    font-size: clamp(14px, 1.2vw, 16px); /* Letra fluida */
+    font-size: clamp(13px, 1.3vw, 16px); 
     color: var(--primary-color);
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-
+/* --- MODO RESPONSIVO (Móviles y Tablets) --- */
 @media (max-width: 850px) {
     .Tabla thead {
-        display: none;
+        display: none; /* Oculta cabecera original */
     }
 
-    .Tabla, .Tabla tbody, .Tabla tr, .Tabla td {
+    .Tabla, .Tabla tbody, .Tabla tr {
         display: block;
         width: 100%;
     }
 
     .Tabla tr {
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         border: 1px solid var(--glass-border);
         border-radius: 15px;
         background: rgba(255, 255, 255, 0.1);
-        padding: 10px;
+        padding: 8px 12px;
         box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        box-sizing: border-box;
     }
 
     .Tabla td {
+        display: flex; /* Cambiado a flexbox para controlar el espacio perfectamente */
+        justify-content: space-between; /* Envía el título a la izquierda y el valor a la derecha */
+        align-items: center;
         text-align: right;
-        padding-left: 50%;
-        position: relative;
+        padding: clamp(10px, 2vw, 15px) 0; /* Padding vertical fluido, sin padding lateral estático */
+        width: 100%;
         border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        box-sizing: border-box;
+        font-size: clamp(12px, 3.5vw, 15px); /* Letra ultra adaptable en móvil */
+        gap: 15px; /* Espacio mínimo entre etiqueta y valor */
     }
 
     .Tabla td:last-child {
         border-bottom: none;
     }
 
-    /* Insertamos el título de la columna usando el atributo data-label */
+    /* Formateo del atributo data-label (Izquierda) */
     .Tabla td::before {
         content: attr(data-label);
-        position: absolute;
-        left: 15px;
-        width: 45%;
-        text-align: left;
         font-weight: bold;
         text-transform: uppercase;
-        font-size: 12px;
-        color: rgba(0,0,0,0.6);
+        font-size: clamp(10px, 3vw, 12px); /* Letra fluida para las etiquetas */
+        color: rgba(0, 0, 0, 0.6);
+        text-align: left;
+        flex-shrink: 0; /* Evita que el título se encoja */
+    }
+    
+    /* El texto del valor (Derecha) */
+    .Tabla td {
+        font-weight: 500;
+    }
+    
+    /* Resaltar el Pago Total en móviles si es el último elemento */
+    .Tabla tr td:last-child {
+        font-weight: bold;
     }
 }
