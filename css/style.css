@@ -43,6 +43,7 @@ body {
     border-radius: clamp(10px, 2vw, 20px);
     box-shadow: var(--shadow);
     backdrop-filter: blur(10px);
+    flex: 1 1 300px; 
     text-align: center;
     overflow: hidden; /* Contener hijos */
     padding: clamp(10px, 2vw, 20px);
@@ -293,14 +294,13 @@ body {
     justify-content: center;
     align-items: flex-start; 
     width: 100%;
-    height: auto;
-    gap: clamp(10px, 2vw, 20px);
-    flex-wrap: wrap;
-    margin-bottom: clamp(20px, 5vh, 50px);
-    padding: 0 clamp(10px, 2vw, 20px);
+    max-width: 1400px; 
+    margin: 0 auto clamp(20px, 5vh, 50px) auto; 
+    padding: 0 clamp(15px, 3vw, 30px);
+    gap: clamp(15px, 2.5vw, 30px); 
+    flex-wrap: wrap; 
     box-sizing: border-box;
 }
-
 /* diseño de la tabla */
 .diseño {
     width: 100%;

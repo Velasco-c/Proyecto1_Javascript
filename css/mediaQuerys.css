@@ -1,4 +1,3 @@
-
 /* ================== MEDIA QUERIES ================== */
 
 /* Tablets y pantallas medianas (menos de 900px) */
@@ -7,12 +6,12 @@
         /* Reducimos a 3 columnas */
         grid-template-columns: repeat(3, 1fr);
     }
-    
+
     .navbar {
         flex-direction: column;
         gap: 10px;
     }
-    
+
     .nav-container {
         width: 100%;
         justify-content: center;
@@ -26,8 +25,10 @@
         align-items: center;
     }
 
-    #modificaciones, .container-principal {
-        width: 95%; /* Ocupar casi todo el ancho */
+    #modificaciones,
+    .container-principal {
+        width: 95%;
+        /* Ocupar casi todo el ancho */
         margin-bottom: 20px;
     }
 
@@ -44,11 +45,11 @@
     .buscador input {
         width: 60%;
     }
-    
+
     .iconos-sociales {
         margin-top: 10px;
     }
-    
+
     .nav-links {
         flex-wrap: wrap;
         justify-content: center;
@@ -61,7 +62,7 @@
         /* 1 sola columna */
         grid-template-columns: 1fr;
     }
-    
+
     .formulario-login button {
         width: 100%;
     }
@@ -85,11 +86,30 @@
 
     .buscador {
         width: 100%;
-        max-width: 400px; /* No deja que se haga gigante en tablets */
+        max-width: 400px;
+        /* No deja que se haga gigante en tablets */
         justify-content: space-between;
     }
 
     .buscador input {
-        flex-grow: 1; /* El input toma todo el espacio disponible en móvil */
+        flex-grow: 1;
+        /* El input toma todo el espacio disponible en móvil */
+    }
+}
+
+/* --- Mapeo Responsive para pantallas muy pequeñas --- */
+@media (max-width: 1024px) {
+    .main {
+        /* En tablets o pantallas pequeñas, si se reduce el espacio, 
+           ambos tomarán el 100% y caerán uno abajo del otro limpiamente */
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .conteiner,
+    .contenedor-principal1 {
+        max-width: 100%;
+        /* Se adaptan por completo al ancho disponible */
+        flex: 1 1 100%;
     }
 }
