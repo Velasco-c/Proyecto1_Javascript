@@ -8,9 +8,7 @@ const registro = (e) => {
     const listaVehiculos = JSON.parse(localStorage.getItem('vehiculos')) || [];
     const tipoIngreso = document.getElementById('tipo-ingreso').value;
     const ahora = new Date();
-    const horaIngreso = ahora.toLocaleTimeString('es-GT', {
-        hour: '2-digit', minute: '2-digit', hour12: true
-    });
+    const horaIngreso = ahora.toLocaleTimeString('es-GT', {hour: '2-digit', minute: '2-digit', hour12: true });
 
     const placa = document.getElementById('placa').value.trim().toUpperCase();
     const espaciosDisponibles = document.getElementById('estacionamiento').value;
@@ -63,7 +61,7 @@ const registro = (e) => {
         tablaBody.appendChild(nuevaFila);
     }
 
-    const datos = { tipoIngreso, tipoVehiculo, placa, horaIngreso, espaciosDisponibles }
+    const datos = { tipoIngreso, tipoVehiculo, placa, horaIngreso, espaciosDisponibles ,ahora}
     listaVehiculos.push(datos);
     localStorage.setItem('vehiculos', JSON.stringify(listaVehiculos));
 
@@ -127,8 +125,6 @@ const cargarDatos = () => {
     });
 }
 cargarDatos();
-
-
 formularioIngreso.addEventListener('submit', registro);
 formularioIngreso.addEventListener('submit', contenedores);
 
@@ -214,3 +210,59 @@ const modificarRegistro = (e) => {
 };
 
 formularioModificar.addEventListener('submit', modificarRegistro);
+
+// funcion para solventar pago
+
+
+const fomularioliquidar = document.getElementById('formulario-liquidar');
+const pago = (e) => {
+    e.preventDefault();
+    const placaLiquidacion = document.getElementById('Liquidar-placa').value.trim().toUpperCase();
+    const listaVehiculosLiquidados = JSON.parse(localStorage.getItem('vehiculoLiquidado')) || [];
+    let listaVehiculos = JSON.parse(localStorage.getItem('vehiculos')) || [];
+    
+    const vehiculoSalida = listaVehiculos.find(v => v.placa === placaLiquidacion);
+
+    if (!vehiculoSalida) {
+        alert('Vehículo no encontrado.');
+        return;
+    }
+    const hora = new Date();
+    const horaEntrada = new Date(vehiculoSalida.ahora);
+
+    const diferenciaMs = hora - horaEntrada;
+
+    const minutosTotales = Math.floor(diferenciaMs / (1000 * 60));
+
+    let tarifaPorHora = 0;
+    switch (vehiculoSalida.tipoIngreso) {
+        case 'MTO': tarifaPorHora = 10; break;
+        case 'CAR': tarifaPorHora = 20; break;
+        case 'SUV': tarifaPorHora = 30; break;
+    }
+
+    tarifaPorminuto = tarifaPorHora / 60;
+    const totalPagar = minutosTotales * tarifaPorminuto;
+
+    const horaSalidaFormateada = hora.toLocaleTimeString('es-GT', {
+        hour: '2-digit', minute: '2-digit', hour12: true
+    });
+
+    const nuevosDatos = {
+        ...vehiculoSalida,
+        horaSalida: horaSalidaFormateada,
+        horaSalidaSinFormato: hora,
+        minutosTotales: minutosTotales,
+        totalPagar: totalPagar.toFixed(2)
+    };
+    listaVehiculos = listaVehiculos.filter(v => v.placa !== placaLiquidacion);
+    liberarEspacio(vehiculoSalida.espaciosDisponibles);
+    localStorage.setItem('vehiculos', JSON.stringify(listaVehiculos));
+    listaVehiculosLiquidados.push(nuevosDatos);
+    localStorage.setItem('vehiculoLiquidado', JSON.stringify(listaVehiculosLiquidados));   
+    console.log(`✅ Vehículo ${placaLiquidacion} liquidado. Total a pagar: Q${totalPagar.toFixed(2)} por ${minutosTotales} minutos.`);
+    cargarDatos();
+    location.reload();
+};
+
+fomularioliquidar.addEventListener('submit', pago);
