@@ -6,34 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Campus Parking || Campus land</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/pagos.css">
+    <link rel="stylesheet" href="/css/mediaQuerys.css">
 </head>
 
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="nav-container">
-                <div class="iconos">
-                    <h1>hola</h1>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="/pagos.html">pagos</a></li>
-                    <li><a href="#tarifas">Tarifas</a></li>
-                    <li><a href="#">configuracion</a></li>
-                </ul>
+  <header>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="iconos">
+                <h1 class="logo">hola</h1>
             </div>
+            <ul class="nav-links">
+                <li><a href="/pagos.html">pagos</a></li>
+                <li><a href="#tarifas">Tarifas</a></li>
+                <li><a href="#">configuracion</a></li>
+            </ul>
+        </div>
 
-            <div class="buscador">
-                <input type="text" placeholder="Buscar...">
-                <button type="submit">Buscar</button>
-            </div>
-            <div class="iconos-sociales">
-                <a href=""><img src="/imagenes/iconos/github.svg" alt="github"></a>
-                <a href=""><img src="/imagenes/iconos/facebook.svg" alt="facebook"></a>
-                <a href=""><img src="/imagenes/iconos/linkedin.svg" alt="linkedin"></a>
-            </div>
-        </nav>
-    </header>
+        <form class="buscador">
+            <input type="text" placeholder="Buscar...">
+            <button type="submit">
+                <span>Buscar</span>
+            </button>
+        </form>
 
+        <div class="iconos-sociales">
+            <a href=""><img src="/imagenes/iconos/github.svg" alt="github"></a>
+            <a href=""><img src="/imagenes/iconos/facebook.svg" alt="facebook"></a>
+            <a href=""><img src="/imagenes/iconos/linkedin.svg" alt="linkedin"></a>
+        </div>
+    </nav>
+</header>
     <main class="main">
         <div class="container-principal">
 
@@ -145,69 +149,71 @@
         </div>
 
         <!-- TABLA DE REGISTROS ACTIVOS -->
-        <div class="container" id="modificaciones">
-            <h3>Vehículos en Parqueo</h3>
-            <table class="diseño" id="tablaVehiculos">
-                <thead>
-                    <tr>
-                        <th>Tipo</th>
-                        <th>Vehículo</th>
-                        <th>Placa</th>
-                        <th>Hora Ingreso</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody id="datos">
-                    <!-- Fila de ejemplo 1 -->
-                    <tr>
-                        <td>MTO</td>
-                        <td>Moto</td>
-                        <td><strong>M-550JKD</strong></td>
-                        <td>08:15 AM</td> <!-- Ejemplo de hora real -->
-                        <td>
-                            <a href="#modificar" class="btn-scroll">
-                                <img src="/imagenes/iconos/pencil.svg" alt="editar" width="18">
-                            </a>
-                            <button class="btn-borrar">
-                                <img src="/imagenes/iconos/trash.svg" alt="eliminar" width="18">
-                            </button>
-                        </td>
-                    </tr>
+        <div class="contenedor-principal">
+            <div class="contenedor" id="tabla">
+                <h3>Vehículos en Parqueo</h3>
+                <table class="diseño" id="tablaVehiculos">
+                    <thead>
+                        <tr>
+                            <th>Tipo</th>
+                            <th>Vehículo</th>
+                            <th>Placa</th>
+                            <th>Hora Ingreso</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="datos">
+                        <!-- Fila de ejemplo 1 -->
+                        <tr>
+                            <td>MTO</td>
+                            <td>Moto</td>
+                            <td><strong>M-550JKD</strong></td>
+                            <td>08:15 AM</td> <!-- Ejemplo de hora real -->
+                            <td>
+                                <a href="#modificar" class="btn-scroll">
+                                    <img src="/imagenes/iconos/pencil.svg" alt="editar" width="18">
+                                </a>
+                                <button class="btn-borrar">
+                                    <img src="/imagenes/iconos/trash.svg" alt="eliminar" width="18">
+                                </button>
+                            </td>
+                        </tr>
 
-                    <!-- Fila de ejemplo 2 -->
-                    <tr>
-                        <td>CAR</td>
-                        <td>Carro</td>
-                        <td><strong>P-882BBS</strong></td>
-                        <td>09:45 AM</td>
-                        <td>
-                            <a href="#modificar" class="btn-scroll">
-                                <img src="/imagenes/iconos/pencil.svg" alt="editar" width="18">
-                            </a>
-                            <button class="btn-borrar">
-                                <img src="/imagenes/iconos/trash.svg" alt="eliminar" width="18">
-                            </button>
-                        </td>
-                    </tr>
+                        <!-- Fila de ejemplo 2 -->
+                        <tr>
+                            <td>CAR</td>
+                            <td>Carro</td>
+                            <td><strong>P-882BBS</strong></td>
+                            <td>09:45 AM</td>
+                            <td>
+                                <a href="#modificar" class="btn-scroll">
+                                    <img src="/imagenes/iconos/pencil.svg" alt="editar" width="18">
+                                </a>
+                                <button class="btn-borrar">
+                                    <img src="/imagenes/iconos/trash.svg" alt="eliminar" width="18">
+                                </button>
+                            </td>
+                        </tr>
 
-                    <!-- Fila de ejemplo 3 -->
-                    <tr>
-                        <td>SUV</td>
-                        <td>Camioneta</td>
-                        <td><strong>P-101QQW</strong></td>
-                        <td>10:30 AM</td>
-                        <td>
-                            <a href="#modificar" class="btn-scroll">
-                                <img src="/imagenes/iconos/pencil.svg" alt="editar" width="18">
-                            </a>
-                            <button class="btn-borrar">
-                                <img src="/imagenes/iconos/trash.svg" alt="eliminar" width="18">
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+                        <!-- Fila de ejemplo 3 -->
+                        <tr>
+                            <td>SUV</td>
+                            <td>Camioneta</td>
+                            <td><strong>P-101QQW</strong></td>
+                            <td>10:30 AM</td>
+                            <td>
+                                <a href="#modificar" class="btn-scroll">
+                                    <img src="/imagenes/iconos/pencil.svg" alt="editar" width="18">
+                                </a>
+                                <button class="btn-borrar">
+                                    <img src="/imagenes/iconos/trash.svg" alt="eliminar" width="18">
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
     </main>
     <section class="main">
         <div class="container" id="modificaciones1">

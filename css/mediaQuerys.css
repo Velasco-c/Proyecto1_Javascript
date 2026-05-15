@@ -1,0 +1,95 @@
+
+/* ================== MEDIA QUERIES ================== */
+
+/* Tablets y pantallas medianas (menos de 900px) */
+@media (max-width: 900px) {
+    .contenedor-espacios {
+        /* Reducimos a 3 columnas */
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .nav-container {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Móviles (menos de 600px) */
+@media (max-width: 600px) {
+    .main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #modificaciones, .container-principal {
+        width: 95%; /* Ocupar casi todo el ancho */
+        margin-bottom: 20px;
+    }
+
+    .contenedor-espacios {
+        /* En móvil, 2 columnas para que sean legibles */
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .buscador {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .buscador input {
+        width: 60%;
+    }
+    
+    .iconos-sociales {
+        margin-top: 10px;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+/* Pantallas muy pequeñas (menos de 350px) */
+@media (max-width: 350px) {
+    .contenedor-espacios {
+        /* 1 sola columna */
+        grid-template-columns: 1fr;
+    }
+    
+    .formulario-login button {
+        width: 100%;
+    }
+}
+
+/* --- Ajustes Responsive para Pantallas Medianas/Pequeñas --- */
+@media (max-width: 768px) {
+    .navbar {
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .buscador {
+        width: 100%;
+        max-width: 400px; /* No deja que se haga gigante en tablets */
+        justify-content: space-between;
+    }
+
+    .buscador input {
+        flex-grow: 1; /* El input toma todo el espacio disponible en móvil */
+    }
+}
