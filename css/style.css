@@ -5,7 +5,7 @@
     --shadow: 0 0 clamp(10px, 2vw, 20px) rgba(0, 0, 0, 0.2);
 }
 html, body {
-    scroll-behavior: auto !important; /* Desactiva scroll suave global */
+    scroll-behavior: auto !important; 
 }
 body {
     margin: 0;
@@ -143,9 +143,6 @@ body {
     font-size: clamp(1.5rem, 2.5vw, 2.2rem);
     font-weight: 800;
     margin: 0;
-    background: linear-gradient(45deg, #ffffff, #e0e0e0);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     letter-spacing: -1px;
 }
 
@@ -245,8 +242,8 @@ body {
 }
 
 .buscador button:hover {
-    background-color: #43a047;
-    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.6);
+    background-color: #4387a0;
+    box-shadow: 0 4px 12px rgba(76, 163, 175, 0.6);
     transform: scale(1.03);
 }
 
@@ -270,9 +267,9 @@ body {
 }
 
 .iconos-sociales img {
-    width: 50%; /* Se adapta al tamaño del contenedor circular */
+    width: 50%; 
     height: auto;
-    filter: invert(1); /* Convierte iconos negros a blancos si es necesario */
+    filter: invert(1); 
     opacity: 0.8;
     transition: all 0.3s ease;
 }
