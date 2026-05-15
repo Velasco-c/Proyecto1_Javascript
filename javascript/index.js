@@ -1,7 +1,7 @@
 // formulario para el ingreso de vehículos al parqueadero
 //datos del formulario como de tabla a usar
 const formularioIngreso = document.getElementById('formulario-agregar');
-const tablaBody = document.getElementById('tablaVehiculos');
+const tablaBody = document.getElementById('datos');
 
 const registro = (e) => {
     e.preventDefault();
