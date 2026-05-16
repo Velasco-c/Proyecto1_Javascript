@@ -11,9 +11,8 @@
         <nav class="navbar">
             <div class="nav-container">
                 <div class="iconos">
-                    <h1 id="Bienvenido"></h1>
+                    <h1 id="Bienvenido"></h1> 
                 </div>
-                
             </div>
 
             <div class="iconos-sociales">
@@ -24,7 +23,50 @@
         </nav>
     </header>
 
+    <main class="perfil-container">
+        
+        <section class="perfil-header-card">
+            <div class="avatar-container">
+                <img src="/imagenes/iconos/user.svg" alt="Foto de perfil" class="avatar-img">
+            </div>
+            
+            <div class="user-info">
+                <h2 id="user-name">Carlos López</h2>
+                <p id="user-email">carlos@campusland.com</p>
+            </div>
+        </section>
 
+        <section class="perfil-section-full">
+            <article class="card-option btn-modificar">
+                <h3>Modificar Datos</h3>
+                <p>Actualiza tu nombre de usuario y contraseña</p>
+                <button type="button" id="btn-abrir-modificar">Editar Perfil</button>
+            </article>
+        </section>
+
+        <section class="perfil-grid-two-columns">
+            
+            <article class="card-option card-pagos">
+                <div class="card-icon">💰</div>
+                <h3>Ganancias Totales</h3>
+                <p class="stat-value">Q. 850.50</p>
+            </article>
+
+            <article class="card-option card-espacios">
+                <div class="card-icon">🅿️</div>
+                <h3>Espacios Libres</h3>
+                <p class="stat-value">32 / 50</p>
+            </article>
+
+        </section>
+
+        <section class="perfil-actions">
+            <a href="index.html" class="btn-nav btn-regresar">Volver al Inicio</a>
+            
+            <button type="button" id="btn-cerrar-sesion" class="btn-nav btn-logout">Cerrar Sesión</button>
+        </section>
+
+    </main>
 
     <script src="/javascript/perfil.js"></script>
 </body>
