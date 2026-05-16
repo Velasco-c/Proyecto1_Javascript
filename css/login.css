@@ -5,7 +5,7 @@
     align-items: center;
     width: 100%;
     min-height: 100vh;
-    padding: 20px;
+    padding: clamp(10px, 4vw, 30px);
     box-sizing: border-box;
 }
 
@@ -14,23 +14,23 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 400px; /* Evita que se haga gigante en pantallas grandes */
+    max-width: clamp(280px, 85vw, 420px); 
     background-color: var(--glass-bg, rgba(255, 255, 255, 0.1));
-    border-radius: 16px;
+    border-radius: clamp(12px, 2vw, 20px);
     box-shadow: var(--shadow, 0 8px 32px rgba(0, 0, 0, 0.3));
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     text-align: center;
     overflow: hidden;
-    padding: 30px 20px;
+    padding: clamp(20px, 5vw, 40px) clamp(15px, 4vw, 30px);
     box-sizing: border-box;
 }
 
 /* Icono de usuario */
 .iconos img {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 15px;
+    width: clamp(50px, 8vw, 70px);
+    height: clamp(50px, 8vw, 70px);
+    margin-bottom: clamp(10px, 2vw, 20px);
 }
 
 .informacion {
@@ -39,9 +39,9 @@
 }
 
 .informacion p {
-    font-size: 0.95rem;
+    font-size: clamp(0.85rem, 1.2vw + 0.5rem, 1rem);
     line-height: 1.4;
-    margin-bottom: 20px;
+    margin-bottom: clamp(15px, 3vw, 25px);
     color: #e0e0e0;
 }
 
@@ -49,20 +49,20 @@
 .formulario-login {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: clamp(12px, 2vh, 18px);
     width: 100%;
 }
 
-/* Inputs unificados (Login y Modal) */
+/* Inputs unificados con escalado fluido */
 .formulario-login input,
 .modal-content input {
-    width: 100%; /* Ahora ocupan el ancho real del contenedor */
-    padding: 12px;
+    width: 100%; 
+    padding: clamp(10px, 1.5vw, 14px);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
+    border-radius: clamp(6px, 1vw, 10px);
     background-color: rgba(255, 255, 255, 0.15);
     color: white;
-    font-size: 1rem; 
+    font-size: clamp(0.9rem, 1vw + 0.5rem, 1.05rem); 
     box-sizing: border-box;
     transition: all 0.3s ease;
 }
@@ -74,23 +74,22 @@
     border-color: #6b7dd5;
 }
 
-/* Texto de registro abajo */
 .formulario-login p {
     color: white;
-    font-size: 0.85rem;
+    font-size: clamp(0.75rem, 1vw + 0.4rem, 0.85rem);
     margin: 5px 0;
 }
 
-/* Botones genéricos */
+/* Botones con escalado fluido */
 .formulario-login button,
 .modal_botones button {
     width: 100%;
-    padding: 12px;
+    padding: clamp(10px, 1.5vw, 14px);
     border: none;
-    border-radius: 8px;
+    border-radius: clamp(6px, 1vw, 10px);
     background-color: #6b7dd5;
     color: white;
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 1vw + 0.5rem, 1.05rem);
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -101,7 +100,7 @@
     background-color: #1a10da;
 }
 
-/* ================== Modal ========================== */
+/* ================== Modal 100% Adaptativo ========================== */
 .contenedor-modal {
     position: fixed;
     top: 0;
@@ -116,7 +115,7 @@
     pointer-events: none;
     transition: opacity 0.3s ease;
     z-index: 1000;
-    padding: 20px; /* Margen de seguridad para móviles */
+    padding: clamp(10px, 4vw, 30px); 
     box-sizing: border-box;
 }
 
@@ -127,30 +126,30 @@
 
 .modal-content {
     background: #1e1e1e;
-    padding: 30px 24px;
-    border-radius: 16px;
+    padding: clamp(20px, 5vw, 40px) clamp(15px, 4vw, 30px);
+    border-radius: clamp(12px, 2vw, 20px);
     width: 100%;
-    max-width: 400px; /* Mismo tamaño max que el login para consistencia */
+    max-width: clamp(280px, 85vw, 420px); 
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: clamp(12px, 2vh, 18px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.5);
     box-sizing: border-box;
 }
 
 .modal-content h2 {
     color: white;
-    margin: 0 0 10px 0;
+    margin: 0 0 5px 0;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: clamp(1.25rem, 2vw + 0.5rem, 1.6rem);
 }
 
 /* Contenedor de botones del Modal */
 .modal_botones {
     display: flex;
-    gap: 12px;
+    gap: clamp(8px, 1.5vw, 14px);
     width: 100%;
-    margin-top: 8px;
+    margin-top: 5px;
 }
 
 #btn-cerrar-registro {
