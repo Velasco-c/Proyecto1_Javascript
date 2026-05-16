@@ -1,11 +1,114 @@
-/* Contenedor del modal (oculto por defecto) */
+/* ================== Login General ========================== */
+.main-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px; /* Evita que se haga gigante en pantallas grandes */
+    background-color: var(--glass-bg, rgba(255, 255, 255, 0.1));
+    border-radius: 16px;
+    box-shadow: var(--shadow, 0 8px 32px rgba(0, 0, 0, 0.3));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    text-align: center;
+    overflow: hidden;
+    padding: 30px 20px;
+    box-sizing: border-box;
+}
+
+/* Icono de usuario */
+.iconos img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+}
+
+.informacion {
+    width: 100%;
+    color: #fff;
+}
+
+.informacion p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    color: #e0e0e0;
+}
+
+/* Formulario */
+.formulario-login {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+/* Inputs unificados (Login y Modal) */
+.formulario-login input,
+.modal-content input {
+    width: 100%; /* Ahora ocupan el ancho real del contenedor */
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    font-size: 1rem; 
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.formulario-login input:focus,
+.modal-content input:focus {
+    background-color: rgba(255, 255, 255, 0.25);
+    outline: none;
+    border-color: #6b7dd5;
+}
+
+/* Texto de registro abajo */
+.formulario-login p {
+    color: white;
+    font-size: 0.85rem;
+    margin: 5px 0;
+}
+
+/* Botones genéricos */
+.formulario-login button,
+.modal_botones button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #6b7dd5;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.formulario-login button:hover,
+.modal_botones button:not(#btn-cerrar-registro):hover {
+    background-color: #1a10da;
+}
+
+/* ================== Modal ========================== */
 .contenedor-modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro traslúcido */
+    background-color: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,43 +116,49 @@
     pointer-events: none;
     transition: opacity 0.3s ease;
     z-index: 1000;
+    padding: 20px; /* Margen de seguridad para móviles */
+    box-sizing: border-box;
 }
 
-/* Estado cuando el modal está abierto */
 .contenedor-modal.activo {
     opacity: 1;
     pointer-events: auto;
 }
 
-/* Estilo de la caja del formulario */
 .modal-content {
-    background: rgb(32, 28, 28);
-    padding: 30px;
-    border-radius: 8px;
-    width: 90%;
-    max-width: 400px;
+    background: #1e1e1e;
+    padding: 30px 24px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 400px; /* Mismo tamaño max que el login para consistencia */
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    align-items: center;
+    gap: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    box-sizing: border-box;
 }
 
-.modal-content input {
-    width: 80%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #444;
-    background: #333;
+.modal-content h2 {
     color: white;
-}
-.modal-content input::placeholder{
-    font-weight: bold;
-}
-.modal-content h2{
-    color: white; 
-    margin-bottom: 20px;
+    margin: 0 0 10px 0;
     text-align: center;
+    font-size: 1.5rem;
 }
-.modal-content button{
-    border-radius: 5px;
+
+/* Contenedor de botones del Modal */
+.modal_botones {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    margin-top: 8px;
+}
+
+#btn-cerrar-registro {
+    background: #333;
+    color: #ccc;
+}
+
+#btn-cerrar-registro:hover {
+    background: #444;
+    color: white;
 }

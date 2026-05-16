@@ -19,17 +19,6 @@ body {
     overflow-x: hidden; /* Evita scroll horizontal indeseado */
 }
 
-/* ================== Login ========================== */
-.main-login {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    min-height: 100vh;
-    padding: clamp(10px, 2vw, 20px); /* Padding de seguridad en bordes */
-    box-sizing: border-box;
-}
 
 .container {
     display: flex;
@@ -37,7 +26,7 @@ body {
     justify-content: center;
     align-items: center;
     width: clamp(300px, 90vw, 400px); 
-    height: auto; /* Mejor auto que fijo para evitar cortes */
+    height: auto; 
     min-height: clamp(300px, 60vh, 500px);
     background-color: var(--glass-bg);
     border-radius: clamp(10px, 2vw, 20px);
@@ -60,55 +49,6 @@ body {
     width: 100%;
     height: 100%;
     object-fit: contain;
-}
-
-.informacion {
-    display: flex;
-    flex-direction: column;
-    padding: clamp(10px, 3vw, 20px);
-    text-align: center;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.formulario-login {
-    display: flex;
-    flex-direction: column;
-    gap: clamp(10px, 2vh, 15px);
-    margin-top: clamp(10px, 3vh, 20px);
-    width: clamp(70%, 90%, 100%);
-    margin-left: auto;
-    margin-right: auto;
-    align-items: center;
-}
-
-.formulario-login input {
-    width: 100%;
-    padding: clamp(8px, 1.5vw, 12px);
-    border: none;
-    border-radius: clamp(4px, 1vw, 8px);
-    background-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
-    /* Fuente responsive dentro del input */
-    font-size: clamp(14px, 1.2vw, 16px); 
-    box-sizing: border-box;
-}
-
-.formulario-login button {
-    padding: clamp(8px, 1.5vw, 12px) clamp(15px, 3vw, 25px);
-    border: none;
-    border-radius: clamp(4px, 1vw, 8px);
-    background-color: #6b7dd59b;
-    color: white;
-    font-size: clamp(14px, 1.2vw, 16px);
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 100%; /* Botón full width en móviles se ve mejor */
-    max-width: 200px;
-}
-
-.formulario-login button:hover {
-    background-color: #1a10da;
 }
 
 
