@@ -32,5 +32,12 @@ const cargarDatos = () => {
     });
 
 };
+document.addEventListener('DOMContentLoaded',cargarDatos)
 
-cargarDatos();
+document.addEventListener('DOMContentLoaded', () => {
+    const textoBienvenida = document.getElementById('Bienvenido');
+    const usuarioLogueado = localStorage.getItem('usuarioLogueado');
+    if (usuarioLogueado && textoBienvenida) {
+        textoBienvenida.textContent = `Hola , ${usuarioLogueado}`;
+    }
+});
