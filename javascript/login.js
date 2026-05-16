@@ -1,19 +1,22 @@
 // --- LÓGICA DE LOGIN ---
 const formularioLogin = document.getElementById('formulario-login');
-const emailValido = 'admin@gmail.com';
-const contraseña = 'admin123';
 
 if (formularioLogin) {
     formularioLogin.addEventListener('submit', (e) => {
         e.preventDefault();
-        const email = document.getElementById('email').value.trim();
-        const password = document.getElementById('password').value.trim();
+        const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
 
-        if (email === emailValido && password === contraseña) {
+        const email = obtenerValor('email');
+        const password = obtenerValor('password');
+        const usarioEncontrado = usuarios.find(v => v.email === email)
+        if(!usarioEncontrado){
+            alert('Correo no registrado');
+        }
+        if (password === usarioEncontrado.contrasenia) {
             alert('¡Inicio de sesión exitoso!');
             window.location.href = 'index.html';
         } else {
-            alert('Credenciales incorrectas.');
+            alert('Contraseña incorrectaa vuelve a intentar.');
         }
     });
 }
@@ -41,15 +44,17 @@ if (btnCerrarRegistro) {
 
 
 // Envío de Registro
-
 const obtenerValor = (id) => document.getElementById(id)?.value.trim();
-
 const ingresarUsuarios = (e) => {
     e.preventDefault();
     const usuariosExistentes = JSON.parse(localStorage.getItem('usuarios')) || [];
     const usuario = obtenerValor('username');
-    const email = obtenerValor('email');
-    const contra = obtenerValor('password');
+    const email = obtenerValor('email1');
+    const contra = obtenerValor('password1');
+    if (!usuario || !email || !contra) {
+        alert("Por favor, rellena todos los campos.");
+        return; 
+    }
     const nuevoUsuario = {
         username: usuario,
         email: email,
