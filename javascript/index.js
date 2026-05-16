@@ -225,6 +225,14 @@ const pago = (e) => {
     console.log(`✅ Vehículo ${placaLiquidacion} liquidado. Total a pagar: Q${totalPagar.toFixed(2)} por ${minutosTotales} minutos.`);    
     location.reload(); 
 };
+/*  username en el header   */
+document.addEventListener('DOMContentLoaded', () => {
+    const textoBienvenida = document.getElementById('Bienvenido');
+    const usuarioLogueado = localStorage.getItem('usuarioLogueado');
+    if (usuarioLogueado && textoBienvenida) {
+        textoBienvenida.textContent = `Hola , ${usuarioLogueado}`;
+    }
+});
 
 /*  
     ==========================================

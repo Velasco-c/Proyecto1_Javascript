@@ -15,6 +15,7 @@ if (formularioLogin) {
         if (password === usarioEncontrado.contrasenia) {
             alert('¡Inicio de sesión exitoso!');
             window.location.href = 'index.html';
+            localStorage.setItem('usuarioLogueado', usarioEncontrado.username);
         } else {
             alert('Contraseña incorrectaa vuelve a intentar.');
         }
