@@ -17,3 +17,23 @@ document.addEventListener('DOMContentLoaded', () => {
         email.textContent = `${datosEncontrado.email}`
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const vehiculosLiquidados = JSON.parse(localStorage.getItem('vehiculoLiquidado')) || [];
+    const vehiculos = JSON.parse(localStorage.getItem('vehiculos')) || [];
+    const Ganancias = obtenerElemento('ganancias');
+    const Espacios = obtenerElemento('espacios');
+    let total = 0;
+    let disponible = 0;
+    vehiculosLiquidados.forEach(v => {
+        total += parseFloat(v.totalPagar || 0); 
+    });
+    disponible = vehiculos.length;
+    if (Ganancias) {
+        Ganancias.textContent = `Q. ${total.toFixed(2)}`;
+    }    
+    if (Espacios) {
+        Espacios.textContent = `${disponible} / 20`;
+    }
+});
+
