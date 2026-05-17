@@ -57,3 +57,32 @@ if (btnCerrarRegistro && modalRegistro) {
         if (formRegistro) formRegistro.reset(); 
     });
 }
+
+if (formRegistro) {
+    formRegistro.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const nuevoUsuario = obtenerValor('new-username');
+        const nuevopassword = obtenerValor('new-password');
+        if (nuevoUsuario) {
+            const usuarioActualSesion = localStorage.getItem('usuarioLogueado');
+            const datosUsuario = JSON.parse(localStorage.getItem('usuarios')) || [];
+            const usuarioAEditar = datosUsuario.find(v => v.username === usuarioActualSesion);
+            if (usuarioAEditar) {
+                usuarioAEditar.username = nuevoUsuario;
+                usuarioAEditar.contrasenia = nuevopassword;
+                localStorage.setItem('usuarios', JSON.stringify(datosUsuario));
+            }
+
+            localStorage.setItem('usuarioLogueado', nuevoUsuario);
+            const txtBienvenido = document.getElementById('Bienvenido');
+            const txtUserName = document.getElementById('user-name');
+            if (txtBienvenido) txtBienvenido.textContent = nuevoUsuario;
+            if (txtUserName) txtUserName.textContent = nuevoUsuario;
+
+            modalRegistro.classList.remove('activo');
+            formRegistro.reset();
+            alert('¡Usuario actualizado exitosamente!');
+            location.reload(); 
+        }
+    });
+}
