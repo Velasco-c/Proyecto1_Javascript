@@ -1,0 +1,241 @@
+/* ==========================================
+   CONTENEDOR PRINCIPAL (MAIN)
+   ========================================== */
+.perfil-container {
+    width: clamp(280px, 92%, 1500px);
+    margin: clamp(1.5rem, 4vw, 3rem) auto;
+    padding: clamp(1rem, 3vw, 1.8rem);
+
+    /* EFECTO CRISTAL PREMIUM */
+    background-color: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    /* Soporte para Safari */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+
+    border-radius: 12px;
+    /* Un poco más curvo suaviza el efecto cristal */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+.perfil-container *,
+.perfil-container *::before,
+.perfil-container *::after {
+    box-sizing: border-box;
+}
+
+/* Tipografía fluida para todo el main */
+.perfil-container h2 {
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    margin: 0 0 0.3rem 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    /* Sutil sombra para legibilidad */
+}
+
+.perfil-container h3 {
+    font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+    margin: 0 0 0.5rem 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.perfil-container p {
+    font-size: clamp(0.85rem, 1.6vw, 1.05rem);
+    margin: 0;
+    color: rgba(255, 255, 255, 0.85);
+    /* Blanco ligeramente opaco para jerarquía del texto */
+}
+
+/* ==========================================
+   TARJETAS INTERNAS (Capa superior de cristal)
+   ========================================== */
+.perfil-header-card,
+.perfil-section-full .btn-modificar,
+.card-option,
+.btn-nav {
+    /* Fondo ligeramente más denso que el contenedor para crear profundidad */
+    background-color: rgba(255, 255, 255, 0.13) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    /* Transición suave para hovers */
+}
+
+/* Sección 1: Header Card */
+.perfil-header-card {
+    color: #ffffff;
+    padding: clamp(1.2rem, 4vw, 2.2rem) clamp(1rem, 3vw, 1.5rem);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(1rem, 3vw, 1.5rem);
+    width: 100%;
+}
+
+.avatar-container {
+    --avatar-size: clamp(75px, 16vw, 110px);
+    width: var(--avatar-size);
+    height: var(--avatar-size);
+    /* El contenedor del icono un poco más brillante */
+    background-color: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.avatar-img {
+    width: 55%;
+    height: 55%;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.user-info {
+    /* Integrado armónicamente con la tarjeta madre */
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    padding: clamp(0.7rem, 2vw, 1.2rem);
+    border-radius: 6px;
+    text-align: center;
+}
+
+/* Sección 2: Modificar Datos */
+.perfil-section-full .btn-modificar {
+    color: #ffffff;
+    padding: clamp(1.2rem, 3vw, 2rem) clamp(1rem, 3vw, 1.5rem);
+    border-radius: 8px;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Botón Sólido de Acción (Editar) */
+.btn-modificar button {
+    margin-top: 1rem;
+    padding: clamp(0.5rem, 1.5vw, 0.7rem) clamp(1.2rem, 3vw, 2rem);
+    font-size: clamp(0.85rem, 1.6vw, 1rem);
+    font-weight: bold;
+    cursor: pointer;
+    width: max-content;
+    max-width: 100%;
+    border-radius: 6px;
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    box-shadow:
+        0 0 4px rgba(255, 255, 255, 0.6),
+        0 0 12px rgba(255, 255, 255, 0.4),
+        inset 0 0 8px rgba(255, 255, 255, 0.3);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.btn-modificar button:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    color: #000000;
+    border-color: #ffffff;
+    box-shadow:
+        0 0 8px #ffffff,
+        0 0 25px #ffffff,
+        0 0 45px rgba(255, 255, 255, 0.7),
+        inset 0 0 15px #ffffff;
+    transform: translateY(-3px) scale(1.02);
+}
+
+.btn-modificar button:active {
+    transform: translateY(-1px) scale(0.98);
+    box-shadow:
+        0 0 5px #ffffff,
+        0 0 15px rgba(255, 255, 255, 0.7);
+}
+
+/* Sección 3: Grid Dos Columnas */
+.perfil-grid-two-columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(0.8rem, 2.5vw, 1.2rem);
+    width: 100%;
+}
+
+.card-option {
+    color: #ffffff;
+    padding: clamp(1rem, 3vw, 1.8rem) clamp(0.8rem, 2vw, 1.2rem);
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.card-icon {
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    margin-bottom: 0.4rem;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+}
+
+.stat-value {
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-weight: bold;
+    margin-top: 0.4rem;
+}
+
+/* Sección 4: Acciones (Botones inferiores) */
+.perfil-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    width: 100%;
+}
+
+.btn-nav {
+    display: block;
+    width: 100%;
+    padding: clamp(0.7rem, 2vw, 1rem);
+    color: #ffffff;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 6px;
+    font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* Eferto Hover Dinámico para los botones transparentes */
+.btn-nav:hover,
+.card-option:hover {
+    background-color: rgba(255, 255, 255, 0.22) !important;
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   MEDIA QUERIES (OPTIMIZACIÓN CELULARES)
+   ========================================== */
+@media (max-width: 480px) {
+    .perfil-grid-two-columns {
+        grid-template-columns: 1fr;
+    }
+
+    .perfil-container {
+        width: 95%;
+        margin: 1rem auto;
+    }
+}
