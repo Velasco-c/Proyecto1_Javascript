@@ -66,7 +66,32 @@
         </section>
 
     </main>
+    <div id="modal-registro" class="modal-overlay">
+        <div class="modal-content-crystal">
+            <div class="modal-header">
+                <h3>Modificar Datos</h3>
+                <p>Actualiza tus credenciales de acceso</p>
+            </div>
+
+            <form id="form-registro">
+                <div class="input-group">
+                    <label for="new-username">Nuevo Nombre de Usuario</label>
+                    <input type="text" id="new-username" placeholder="Ingresa tu nuevo usuario" required>
+                </div>
+                <div class="input-group">
+                    <label for="new-password">Nueva Contraseña</label>
+                    <input type="password" id="new-password" placeholder="Ingresa tu nueva contraseña" required>
+                </div>
+
+                <div class="form-buttons">
+                    <button type="submit" class="btn-neon-save">Guardar Cambios</button>
+                    <button type="button" id="btn-cerrar-registro" class="btn-neon-cancel">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <script src="/javascript/perfil.js"></script>
 </body>
+
 </html>
