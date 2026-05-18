@@ -19,10 +19,10 @@ const agregarFilaAlDOM = (vehiculo) => {
         <td>${vehiculo.horaIngreso}</td>
         <td>
             <a href="#modificar" class="btn-scroll">
-                <img src="/imagenes/iconos/pencil.svg" alt="editar" width="18">
+                <img src="./imagenes/iconos/pencil.svg" alt="editar" width="18">
             </a>
             <button class="btn-borrar">
-                <img src="/imagenes/iconos/trash.svg" alt="eliminar" width="18">
+                <img src="./imagenes/iconos/trash.svg" alt="eliminar" width="18">
             </button>
         </td>
     `;
