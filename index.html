@@ -11,33 +11,33 @@
 </head>
 
 <body>
-  <header>
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="iconos">
-                <h1 class="logo" id="Bienvenido">CampusParking</h1>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="iconos">
+                    <h1 class="logo" id="Bienvenido">CampusParking</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="./pagos.html">pagos</a></li>
+                    <li><a href="#tarifas">Tarifas</a></li>
+                    <li><a href="./perfil.html">perfil</a></li>
+                </ul>
             </div>
-            <ul class="nav-links">
-                <li><a href="./pagos.html">pagos</a></li>
-                <li><a href="#tarifas">Tarifas</a></li>
-                <li><a href="./perfil.html">perfil</a></li>
-            </ul>
-        </div>
 
-        <form class="buscador">
-            <input type="text" placeholder="Buscar...">
-            <button type="submit">
-                <span>Buscar</span>
-            </button>
-        </form>
+            <form class="buscador">
+                <input type="text" placeholder="Buscar...">
+                <button type="submit">
+                    <span>Buscar</span>
+                </button>
+            </form>
 
-        <div class="iconos-sociales">
-            <a href=""><img src="./imagenes/iconos/github.svg" alt="github"></a>
-            <a href=""><img src="./imagenes/iconos/facebook.svg" alt="facebook"></a>
-            <a href=""><img src="./imagenes/iconos/linkedin.svg" alt="linkedin"></a>
-        </div>
-    </nav>
-</header>
+            <div class="iconos-sociales">
+                <a href=""><img src="./imagenes/iconos/github.svg" alt="github"></a>
+                <a href=""><img src="./imagenes/iconos/facebook.svg" alt="facebook"></a>
+                <a href=""><img src="./imagenes/iconos/linkedin.svg" alt="linkedin"></a>
+            </div>
+        </nav>
+    </header>
     <main class="main">
         <div class="container-principal">
 
@@ -93,8 +93,7 @@
                     <div class="grupo-input">
                         <label>Detalles de entrada:</label>
                         <input type="number" id="estacionamiento" placeholder="Lugar (1-20)" min="1" max="20" required>
-
-                        <input type="text" id="placa" placeholder="Ej: qw-145dr" required autocomplete="off">
+                        <input type="text" id="placa" placeholder="Ej: 123-QWE" maxlength="7" autocomplete="off" oninput="formatearPlaca(this)" required>
                     </div>
                     <button type="submit" class="btn-actualizar">Registrar Ingreso</button>
                     <a href="#tarifas" class="btn-cancelar">Volver al inicio</a>
@@ -109,7 +108,7 @@
                 <form class="formulario-modificar" id="formulario-modificacion">
                     <div class="grupo-input">
                         <label>Vehículo a editar:</label>
-                        <input type="text" id="placa2" placeholder="Número de placa (Ej: P-123ABC)" required>
+                        <input type="text" id="placa2" placeholder="Ej: 123-QWE" maxlength="7" autocomplete="off" oninput="formatearPlaca(this)" required>
 
                     </div>
 
@@ -117,7 +116,7 @@
                         <label>Nuevos datos del vehículo:</label>
                         <input type="number" id="estacionamiento1" placeholder="ingrese el lugar de estacionamiento"
                             min="1" max="20" required>
-                        <input type="text" placeholder="Nueva placa (Ej: P-123ABC)" id="placas3" required>
+                        <input type="text" id="placas3" placeholder="Ej: 123-QWE" maxlength="7" autocomplete="off" oninput="formatearPlaca(this)" required>
 
                     </div>
 
@@ -134,7 +133,7 @@
                 <form action="#" class="formulario-modificar" id="formulario-liquidar">
                     <div class="grupo-input">
                         <label>Seleccionar Vehículo Activo:</label>
-                        <input type="text" placeholder="Buscar por número de placa" id="Liquidar-placa" required>
+                        <input type="text" id="Liquidar-placa" placeholder="Ej: 123-QWE" maxlength="7" autocomplete="off" oninput="formatearPlaca(this)" required>
                     </div>
 
                     <div class="grupo-input">
@@ -212,8 +211,8 @@
                         </tr>
                     </tbody>
                 </table>
-                </div>
             </div>
+        </div>
     </main>
     <section class="main">
         <div class="container" id="modificaciones1">

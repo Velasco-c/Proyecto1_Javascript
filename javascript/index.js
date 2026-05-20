@@ -234,6 +234,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+/*formatear la placa */
+const obtenerValor = (id) => document.getElementById(id)?.value.trim().toUpperCase();
+
+function formatearPlaca(input) {
+    let valor = input.value.toUpperCase().replace(/[^0-9A-Z]/g, '');
+    
+    let numeros = valor.substring(0, 3).replace(/[^0-9]/g, '');
+    
+    let letras = valor.substring(3, 6).replace(/[^A-Z]/g, '');
+    
+    if (letras.length > 0) {
+        input.value = `${numeros}-${letras}`;
+    } else {
+        input.value = numeros;
+    }
+}
+
+
 /*  
     ==========================================
     4. INICIALIZACIÓN Y EVENT LISTENERS
